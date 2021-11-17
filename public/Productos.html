@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Productos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	    <link rel="stylesheet" href="assets/css/productos.css" >
+	</head>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		
+		<div id="menu">	
+			<img src="assets/img/imgcorp-2.png" alt="logo.jpg" class="logo" />
+			<ul class="list-group-horizontal-lg">
+			  <a class="navbar-brand" style="color: white;" href="Productos.html">Productos</a>
+				<a class="navbar-brand" style="color: white;" href="clientes.html">Clientes</a>
+				<a class="navbar-brand" style="color: white;" href="#">Ventas</a>
+				<a class="navbar-brand" style="color: white;" href="#">Reportes</a>
+				<a class="navbar-brand" style="color: white;" href="#">Consolidacion</a>
+				<a class="navbar-brand" style="color: white;" href="index.html">Inicio</a>
+		    <ul>
+		</div>
+		<div class="container w-75 mt-5 rounded shadow-lg">
+			<div class="row">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-secondary	 rounded">
+					<a class="navbar-brand" href="#">Cadena de tiendas La Generica - Sucursal Cali, Medellin, Bogota</a>
+				</nav>
+			</div>
+		</div>
+		<form class="formulario" id="formulario" method="post" enctype="multipart/form-data" action="/subirArchivoCSV">
+  			<div class = "carga">
+  				<!--<label for="Examinar" class="label" placeholder=>Nombre del Archivo </label>
+				<input type="text" id="lablenombrearchivo" name="archivo" class="formulario__archivo" id="archivo" placeholder="Elegir Archivo">
+				<input type="file" id="selectedFile" name="file"class ="elegir_archivo" accept=".csv" style="display: none;" />
+				<input type="button" class="formulario__btn" value="Examinar" onclick="document.getElementById('selectedFile').click();" />-->
+				
+				<label for="Examinar" class="form-label">Productos</label>
+    			<input type="file" id="selectedFile" name="file" class="form-control" accept=".csv" name="file" id="">
+    			<button type="submit" class="formulario__btn mt-2">Cargar Archivo</button> 			
+  			</div>
+  			<!--<button type="submit" class="formulario__btn">Cargar Archivo</button>-->  		  	 
+  		</form>
+		<script src="js/productos.js"></script>
+      	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>		
+</body>
+</html>
