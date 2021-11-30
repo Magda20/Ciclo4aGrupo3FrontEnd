@@ -155,7 +155,7 @@ document.getElementById("btn-confirmar").addEventListener('click', function () {
 			"valorTotal":document.getElementById("valorTotalProducto1").value,
 		}
 		detalleVentas.push(detalleVentas1);
-	} 
+	}
 	if (validador(2)){
 		let detalleVentas2={
 			"cantidad":document.getElementById("cantidadProducto2").value,
