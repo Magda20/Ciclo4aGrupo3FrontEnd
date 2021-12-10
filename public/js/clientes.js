@@ -126,7 +126,7 @@ document.getElementById("btn-actualizar").addEventListener('click', function(){
 			data : JSON.stringify(datosformulario),
 			success:function(){alert("El usuario ha sido actualizado");
 			document.getElementById("cedula").value="";
-			document.getElementById("password").value="";
+			document.getElementById("telefono").value="";
 			document.getElementById("email").value="";
 			document.getElementById("nombre").value="";
 			document.getElementById("usuario").value="";
@@ -139,19 +139,16 @@ document.getElementById("btn-consultar").addEventListener('click', function(){
 			type:"GET",
 			url:"http://localhost:8082/clientes/buscar/" +document.getElementById("cedula").value,
 			success:function(data){
-			if(data.length != 0){	
-				$.each(data, function(i,item){
-					document.getElementById("direccion").value = item.direccion;
-					document.getElementById("email").value = item.email;
-					document.getElementById("nombre").value = item.nombre;
-					document.getElementById("telefono").value = item.telefono;
-				})
-			}else{
+			if(data != null){	
+					document.getElementById("direccion").value = data.direccion;
+					document.getElementById("email").value = data.correo;
+					document.getElementById("nombre").value = data.nombre;
+					document.getElementById("telefono").value = data.telefono;
+			}else{ 	
 				
 				alert("Cliente no Encontrado");
 			}
-
-			}
+		}
 	})
 });
 
