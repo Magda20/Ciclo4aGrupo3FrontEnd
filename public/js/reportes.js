@@ -6,16 +6,15 @@ document.getElementById("btn-lista-clientes").onclick = function(){
 			table = document.getElementById("table");
 			var thead = document.createElement("thead");
 			thead.setAttribute('class', 'menu');
-			thead.innerHTML = '<tr class="bg-secondary text-light text-center ">'+
+			thead.innerHTML = '<tr class="bg-secondary text-light text-center">'+
 								"<th>Cedula</th>"+
 								"<th>Nombre</th>"+
 								"<th>Correo Electronico</th>"+
 								"<th>Direccion</th>"+
 								"<th>Telefono</th>"+
-							+"</tr>";
+							"</tr>";
 			var tbody = document.createElement("tbody");
 			$.each(data, function(i, item){
-				
 				var row = document.createElement("tr");
 				var cedula = document.createElement("td");
 				cedula.innerHTML = item.cedula
@@ -41,12 +40,12 @@ document.getElementById("btn-lista-clientes").onclick = function(){
 	})
 }
 
-
+document.getElementById("btn-lista-ventasCliente").onclick = function(){
 var ventasCliente = $.ajax ({
 	type:"GET",
 	url:"http://localhost:8084/ventas/listarCedula",
 	success:function (data){
-		table =document.getElementById("tabla");
+		table =document.getElementById("table");
 		var thead = document.createElement("thead");
 		thead.setAttribute('id', 'lista');
 		thead.innerHTML=
@@ -63,9 +62,15 @@ var ventasCliente = $.ajax ({
 			var cedula = document.createElement("td");
 			cedula.innerHTML = item.cedula;	
 			var Nombre = document.createElement("td");
-			Nombre.innerHTML = item.nombre;
+			var nombres = $.ajax({
+				type:"GET",
+				url:"http://localhost:8082/clientes/buscar/"+item.cedula,
+				success:function(data){
+					Nombre.innerHTML = data.nombre;
+				}
+			})	
 			var Ventas = document.createElement("td");
-			Ventas.innerHTML = item.suma;
+			Ventas.innerHTML = item.totalVentas;
 			
 			row.appendChild(cedula);
 			row.appendChild(Nombre);
@@ -77,4 +82,5 @@ var ventasCliente = $.ajax ({
 		table.appendChild(thead);
 		table.appendChild(tbody);						
     }
-});
+})
+}
